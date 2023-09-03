@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <style>
+        .card-container {
+            width: 500px;
+            margin: auto;
+            /*background: beige;*/
+        }
+
+        .card {
+            padding: 1rem;
+            border: 1px solid red;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">This a first card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a card</div>
+        <div class="card">This a last card</div>
+    </div>
+
+<script>
+    const cards = document.querySelectorAll('.card')
+    // const observer = new IntersectionObserver(entries => {
+    //     entries.forEach(entry => {
+    //         console.log(entry.isIntersecting)
+    //     })
+    // }, {
+    //     // threshold: 1
+    //     rootMargin: "200px"
+    // })
+    // cards.forEach(card => {
+    //     observer.observe(card)
+    // })
+
+
+    const LastCardObserver = new IntersectionObserver((entries )=> {
+        const lastCard = entries[0]
+        if(!lastCard.isIntersecting) return;
+        loadMoreData()
+        LastCardObserver.unobserve(lastCard.target)
+        LastCardObserver.observe(document.querySelector(".card:last-child"))
+    }, {
+         //threshold: 1
+        rootMargin: "200px"
+    })
+
+    LastCardObserver.observe(document.querySelector(".card:last-child"))
+
+    function loadMoreData() {
+        console.log("Loading...")
+        for (var i = 0; i < 10; i++) {
+            const card = document.createElement('div')
+            card.textContent = "New Card - "+i
+            card.classList.add("card")
+            document.querySelector(".card-container").append(card)
+        }
+        console.log("Data load done...")
+    }
+</script>
+</body>
+</html>
