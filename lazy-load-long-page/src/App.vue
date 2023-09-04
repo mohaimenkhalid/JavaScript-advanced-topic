@@ -1,6 +1,7 @@
 <script setup>
 import {ref} from "vue";
 import UserList from "@/components/UserList";
+import LazyImageList from "@/components/LazyImageList";
 
 const posts = ref([])
 const postLoading = ref(false)
@@ -43,8 +44,10 @@ getAllPhotos()
         </div>
       </div>
     </div>
-
     <UserList />
+    <LazyImageList />
+
+
   </div>
 </template>
 
