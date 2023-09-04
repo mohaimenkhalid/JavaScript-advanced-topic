@@ -1,24 +1,7 @@
-# lazy-load-long-page
+# Intersection Observer
 
-## Project setup
-```
-npm install
-```
+## Implementation of Intersection Observer
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Feature: 
+#### 1. Api all after section moves to viewport
+#### 2. Lazy load feature implement 
